@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DBMaster.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [UINavigationBar appearance].barTintColor = kDefaultColor;
+    [[DBMaster sharedDBMaster] openDataBaseWithDBName:@"user"];
     return YES;
 }
 

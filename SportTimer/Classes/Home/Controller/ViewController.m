@@ -9,10 +9,17 @@
 #import "ViewController.h"
 #import "HUParallaxView.h"
 #import "UINavigationBar+BackgroundColor.h"
+#import "HUAddSportViewController.h"
+#import "NSObject+HUCalculator.h"
+
+#import "HUUserViewModel.h"
+#import "HUModel.h"
+#import "HUCommond.h"
 
 
+@interface ViewController ()<HUParallaxViewDelegate, HUParallaxViewDataSoruce>
 
-@interface ViewController ()
+@property (nonatomic, strong) HUModel *model;
 
 @end
 
@@ -21,30 +28,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-//    
-//    MyView *myview = [[MyView alloc] initWithFrame:CGRectMake(60, 200, 200, 200)];
-//    [self.view addSubview:myview];
-//    
-//    myview.delegateSignal = [RACSubject subject];
-//    [myview.delegateSignal subscribeNext:^(id x) {
-//        NSLog(@"点击了通知按钮: %@", x);
-//    }];
+   
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewSport)];
+    
     HUParallaxView *parallaxView = [[HUParallaxView alloc] initWithFrame:self.view.bounds];
     parallaxView.didScrollSignal = [RACSubject subject];
+    parallaxView.delegate = self;
+    parallaxView.dataSource = self;
     [self.view addSubview:parallaxView];
-    
+        
     [parallaxView.didScrollSignal subscribeNext:^(NSNumber *offsetY) {
         //NSLog(@"%f", offsetY.floatValue);
-        CGFloat alpha = 1 - ((64-offsetY.floatValue)/64);
-        [self.navigationController.navigationBar hu_setBackgroundColor:[[UIColor orangeColor] colorWithAlphaComponent:alpha]];
+//        CGFloat alpha = 1 - ((64-offsetY.floatValue)/64);
+//        [self.navigationController.navigationBar hu_setBackgroundColor:[[UIColor orangeColor] colorWithAlphaComponent:alpha]];
     }];
-    
+      // NSLog(@"result: %@", result);
+//    
+//    _model = [[HUModel alloc] init];
+//    
+//    //[self.model addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+//    
+//    //RAC(self, title) = RACObserve(self.model, name);
+//    HUCommond *com = HUCommond(self, @"title") ;
+//    HUObserve(self.model, @"name");
+//    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        _model.name = result;
+//        NSLog(@"commod: %@", com);
+//    });
+//
+   
+      
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
-    
+    [super viewWillAppear:animated];
+    //[self.navigationController setNavigationBarHidden:YES animated:animated];
     [self.navigationController.navigationBar hu_setBackgroundColor:[UIColor clearColor]];
 }
 
@@ -53,73 +72,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - tableView delegate
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+//    id value = change[NSKeyValueChangeNewKey];
+//    self.title = value;
+//}
 
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    CGFloat offsetY = scrollView.contentOffset.y;
-//    
-//    CGFloat alpha = 1 - ((64-offsetY)/64);
-//    
-//    [self.navigationController.navigationBar hu_setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:alpha]];
-//    
-//    if (offsetY < 0) {
-//        //_bgTopConstraint.equalTo(self.view);
-//        _bgHeightConstraint.equalTo(@(KBGHeight-offsetY));
-//        
-//        CGFloat width = (KBGHeight-offsetY)*self.tableView.frame.size.width / KBGHeight;
-//        _bgWidthConstraint.equalTo(@(width));
-//    } else {
-//        _bgTopConstraint.equalTo(@(-offsetY));
-//    }
-//}
-//
-//#pragma mark - getter
-//
-//- (UITableView *)tableView {
-//    if (!_tableView) {
-//        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-//        _tableView.delegate = self;
-//        _tableView.tableHeaderView = [self tableHeaderView];
-//    }
-//    return _tableView;
-//}
-//
-//#pragma mark - private func 
-//
-//- (void)setupView {
-//    UIImageView *bgView = [UIImageView new];
-//    bgView.image = [UIImage imageNamed:@"a.jpg"];
-//    [self.view insertSubview:bgView aboveSubview:self.tableView];
-//    bgView.contentMode = UIViewContentModeScaleAspectFill;
-//    bgView.clipsToBounds = YES;
-//    
-//    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        self.bgTopConstraint = make.top.equalTo(self.view);
-//        make.centerX.equalTo(self.view.mas_centerX);
-//        self.bgHeightConstraint = make.height.equalTo(@(KBGHeight));
-//        self.bgWidthConstraint = make.width.equalTo(self.view.mas_width);
-//        
-//    }];
-//}
-//
-//- (UIView *)tableHeaderView {
-//    UIView *headerView = [[UIView alloc] init];
-//    headerView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, KBGHeight);
-//    headerView.backgroundColor = [UIColor clearColor];
-//    return headerView;
-//}
-//
-//- (RACSignal *)signal {
-//   return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-//    
-//        if ([self.textField.text isEqualToString:@"123"]) {
-//            
-//            [subscriber sendNext:@1];
-//            [subscriber sendCompleted];
-//        }
-//       return nil;
-//    }];
-//    
-//}
+#pragma mark - HUParallaxViewDataSoruce
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *ID = @"cellll";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"%zd", indexPath.row];
+    return cell;
+}
+
+#pragma mark - HUParallaxViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self addNewSport];
+}
+
+#pragma mark - private func
+
+- (void)addNewSport {
+    HUAddSportViewController *newSportVC = [[HUAddSportViewController alloc] init];
+    [self.navigationController pushViewController:newSportVC animated:YES];
+}
+
 
 @end

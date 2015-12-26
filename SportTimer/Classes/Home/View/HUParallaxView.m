@@ -71,15 +71,23 @@ static const CGFloat KUserIconWH = 80;
     return _tableView;
 }
 
+- (void)setDataSource:(id<HUParallaxViewDataSoruce>)dataSource {
+    self.tableView.dataSource = dataSource;
+}
+
+- (void)setDelegate:(id<HUParallaxViewDelegate>)delegate{
+    self.tableView.delegate = delegate;
+}
+
 #pragma mark - private func
 
 - (void)setupView {
     UIImageView *bgView = [UIImageView new];
-    //bgView.image = [UIImage imageNamed:@"b.jpg"];
+    bgView.image = [UIImage imageNamed:@"b.jpg"];
     [self insertSubview:bgView aboveSubview:self.tableView];
-//    bgView.contentMode = UIViewContentModeScaleAspectFill;
-//    bgView.clipsToBounds = YES;
-    bgView.backgroundColor = [UIColor orangeColor];
+    bgView.contentMode = UIViewContentModeScaleAspectFill;
+    bgView.clipsToBounds = YES;
+    //bgView.backgroundColor = [UIColor orangeColor];
     
     UIImageView *userIcon = [UIImageView new];
     userIcon.layer.cornerRadius = KUserIconWH/2;
@@ -112,5 +120,8 @@ static const CGFloat KUserIconWH = 80;
     return headerView;
 }
 
+- (NSInteger)number {
+    return 100000;
+}
 
 @end
