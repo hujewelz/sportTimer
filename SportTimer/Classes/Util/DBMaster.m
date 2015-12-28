@@ -94,17 +94,17 @@
         idx ++;
         
     }
-    NSLog(@"arguments: %@, count: %d",array, count);
+    //NSLog(@"arguments: %@, count: %d",array, count);
     
     NSAssert(array.count == count, @"参数个数不匹配");
     BOOL result ;//= [self.dataBase executeUpdate:sql];
     if (count == 0) {
         result = [self.dataBase executeUpdate:sql];
-        NSLog(@"无参数");
+        //NSLog(@"无参数");
     }
     else if(count == array.count) {
         result = [self.dataBase executeUpdate:sql withArgumentsInArray:array];
-        NSLog(@"有参数");
+        //NSLog(@"有参数");
     }
    //
     

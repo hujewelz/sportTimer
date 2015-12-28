@@ -23,16 +23,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, 320, 200)];
-//    button.backgroundColor = [UIColor orangeColor];
-//    [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:button];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, 320, 200)];
+    button.backgroundColor = [UIColor orangeColor];
+    [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
     HUUser *user = [[HUUser alloc] init];
     user.userId = @301;
-    _userViewModel= [[HUUserViewModel alloc] initWith:user];
+    _userViewModel= [[HUUserViewModel alloc] initWithModel:user];
     //_userViewModel.networkingReachable = NO;
     
     __weak typeof(self) weakself = self;
@@ -63,6 +63,7 @@
 
 - (void)buttonClicked {
      // NSLog(@"name: %@", _name);
+    [_userViewModel cancel];
 }
 /*
 #pragma mark - Navigation

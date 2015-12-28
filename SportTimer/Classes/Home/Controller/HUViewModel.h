@@ -10,10 +10,10 @@
 
 @interface HUViewModel : NSObject
 
-//- (instancetype)initWith:(id)model;
+- (instancetype)initWithModel:(id)model;
 - (void)fetchDataSuccess:(void(^)(HUViewModel *viewModel))success failure:(void(^)(NSString *msg))failure;
 
-//@property (nonatomic, strong) id model;
+@property (nonatomic, strong) id model;
 
 @property (nonatomic) BOOL networkingReachable;
 

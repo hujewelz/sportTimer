@@ -13,7 +13,9 @@
 
 @property (nonatomic, copy) NSString *name;
 
-- (instancetype)initWith:(HUUser *)user;
+//- (instancetype)initWith:(HUUser *)user;
+
+- (void)cancel;
 
 //- (void)fetchDataSuccess:(void(^)(HUUserViewModel *viewModel))success failure:(void(^)(NSString *msg))failure;
 

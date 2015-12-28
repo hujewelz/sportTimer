@@ -59,7 +59,8 @@
     return [[HUSignal alloc] init];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     NSLog(@"keypath: %@, value: %@", keyPath, change[NSKeyValueChangeNewKey]);
     
     //RAC(<#TARGET, ...#>)

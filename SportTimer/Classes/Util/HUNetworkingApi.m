@@ -44,6 +44,11 @@
     return self;
 }
 
++ (void)cancel {
+    [[HUNetworkingApi sharedNetworking].httpSession.tasks makeObjectsPerformSelector:@selector(cancel)];
+   // [[HUNetworkingApi sharedNetworking].httpSession invalidateSessionCancelingTasks:NO];
+}
+
 + (void)GET:(NSString *)URLString
     success:(SuccessBlock)success
     failure:(FailureBlock)failure {

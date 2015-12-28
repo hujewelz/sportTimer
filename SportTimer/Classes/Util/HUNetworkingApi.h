@@ -15,6 +15,8 @@ typedef void (^FailureBlock)(NSURLSessionDataTask *task, NSString *error);
 
 + (instancetype)sharedNetworking;
 
++ (void)cancel;
+
 + (void)GET:(NSString *)URLString
     success:(SuccessBlock)success
     failure:(FailureBlock)failure;
