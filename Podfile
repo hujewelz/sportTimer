@@ -9,5 +9,8 @@ pod 'ReactiveCocoa'
 pod 'FMDB'
 pod 'Masonry'
 pod 'AFNetworking', '~> 2.5.4'
+
+pod 'MJRefresh'
+
 end
 

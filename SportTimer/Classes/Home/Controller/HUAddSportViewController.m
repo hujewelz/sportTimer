@@ -10,7 +10,7 @@
 #import "UINavigationBar+BackgroundColor.h"
 #import "HUUserViewModel.h"
 
-@interface HUAddSportViewController ()
+@interface HUAddSportViewController ()<HUBasicViewModelDelegate>
 @property (nonatomic,strong) HUUserViewModel *userViewModel;
 
 @end
@@ -18,11 +18,13 @@
 @implementation HUAddSportViewController
 
 - (void)dealloc {
-    NSLog(@"%s", sel_getName(_cmd));
+    [_userViewModel cancel];
+    NSLog(@"%s, %@", sel_getName(_cmd), self);
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, 320, 200)];
     button.backgroundColor = [UIColor orangeColor];
     [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
@@ -33,12 +35,14 @@
     HUUser *user = [[HUUser alloc] init];
     user.userId = @301;
     _userViewModel= [[HUUserViewModel alloc] initWithModel:user];
-    //_userViewModel.networkingReachable = NO;
+    
+    //_userViewModel.networkingReachable = YES;
+//    _userViewModel.delegate = self;
+//    [_userViewModel fetchData];
     
     __weak typeof(self) weakself = self;
-    [_userViewModel fetchDataSuccess:^(HUViewModel *viewModel) {
+    [_userViewModel fetchDataSuccess:^(HUBaskViewModel *viewModel) {
         [weakself reloadData];
-        //self.name = viewModel.name;
     } failure:^(NSString *msg) {
         NSLog(@"error: %@", msg);
     }];
@@ -57,13 +61,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewModelDidFetchDataSucceed:(HUBaskViewModel *)viewModel {
+    [self reloadData];
+}
+
 - (void)reloadData {
     self.title = _userViewModel.name;
 }
 
 - (void)buttonClicked {
      // NSLog(@"name: %@", _name);
-    [_userViewModel cancel];
+    NSString *title = [NSString stringWithFormat:@"%@+%@", self.title, _userViewModel.name];
+    self.title = title;
+    _userViewModel.loadType = HUViewModelLoadTypeLoadNew;
 }
 /*
 #pragma mark - Navigation

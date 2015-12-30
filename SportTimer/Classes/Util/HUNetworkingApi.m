@@ -110,6 +110,7 @@
     }];
     
 }
+
 + (NSString *)errorMsgFromeErrorMsg:(NSString *)errorMsg {
     NSString *error = @"连接超时";
     if ([errorMsg isEqualToString:@"The request timed out."]) {

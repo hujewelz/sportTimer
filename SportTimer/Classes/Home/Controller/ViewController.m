@@ -15,7 +15,8 @@
 #import "HUUserViewModel.h"
 #import "HUModel.h"
 #import "HUCommond.h"
-
+#import "MyView.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface ViewController ()<HUParallaxViewDelegate, HUParallaxViewDataSoruce>
 
@@ -31,17 +32,22 @@
    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewSport)];
     
-    HUParallaxView *parallaxView = [[HUParallaxView alloc] initWithFrame:self.view.bounds];
-    parallaxView.didScrollSignal = [RACSubject subject];
-    parallaxView.delegate = self;
-    parallaxView.dataSource = self;
-    [self.view addSubview:parallaxView];
-        
-    [parallaxView.didScrollSignal subscribeNext:^(NSNumber *offsetY) {
-        //NSLog(@"%f", offsetY.floatValue);
-//        CGFloat alpha = 1 - ((64-offsetY.floatValue)/64);
-//        [self.navigationController.navigationBar hu_setBackgroundColor:[[UIColor orangeColor] colorWithAlphaComponent:alpha]];
-    }];
+    MyView *view = [[MyView alloc] initWithFrame:CGRectMake(0, 100, 200, 25)];
+    [self.view addSubview:view];
+    
+    MJRefreshNormalHeader headerWithRefreshingBlock:<#^(void)refreshingBlock#>
+    
+//    HUParallaxView *parallaxView = [[HUParallaxView alloc] initWithFrame:self.view.bounds];
+//    parallaxView.didScrollSignal = [RACSubject subject];
+//    parallaxView.delegate = self;
+//    parallaxView.dataSource = self;
+//    [self.view addSubview:parallaxView];
+//        
+//    [parallaxView.didScrollSignal subscribeNext:^(NSNumber *offsetY) {
+//        //NSLog(@"%f", offsetY.floatValue);
+////        CGFloat alpha = 1 - ((64-offsetY.floatValue)/64);
+////        [self.navigationController.navigationBar hu_setBackgroundColor:[[UIColor orangeColor] colorWithAlphaComponent:alpha]];
+//    }];
       // NSLog(@"result: %@", result);
 //    
 //    _model = [[HUModel alloc] init];

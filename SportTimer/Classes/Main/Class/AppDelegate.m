@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DBMaster.h"
+#import "HUTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [UINavigationBar appearance].barTintColor = kDefaultColor;
+    
+    HUTabBarController *tabBarVc = [[HUTabBarController alloc] init];
+    self.window.rootViewController = tabBarVc;
+    
     [[DBMaster sharedDBMaster] openDataBaseWithDBName:@"user"];
     return YES;
 }

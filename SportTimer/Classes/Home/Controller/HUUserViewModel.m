@@ -18,21 +18,44 @@
 
 @implementation HUUserViewModel
 
-- (instancetype)initWithModel:(id)model {
-    self = [super initWithModel:model];
-    if (self == nil) return nil;
-    
-    //_user = user;
-    
-    return self;
+//- (instancetype)initWithModel:(id)model {
+//    self = [super initWithModel:model];
+//    if (self == nil) return nil;
+//    
+//    return self;
+//}
+
+- (void)dealloc {
+     NSLog(@"%s, %@", sel_getName(_cmd), self);
+    //[self removeObserver:self forKeyPath:@"loadType"];
 }
 
-- (void)fetchDataSuccess:(void (^)(HUViewModel *))success failure:(void (^)(NSString *))failure {
+
+
+- (void)fetchData {
+    
+    [self fetchDataSuccess:^(HUBaskViewModel *viewModel) {
+        if ([self.delegate respondsToSelector:@selector(viewModelDidFetchDataSucceed:)]) {
+            [self.delegate viewModelDidFetchDataSucceed:self];
+        }
+
+    } failure:^(NSString *msg) {
+        if ([self.delegate respondsToSelector:@selector(viewModel:didFailedWithErrorMsg:)]) {
+            [self.delegate viewModel:self didFailedWithErrorMsg:msg];
+        }
+    }];
+}
+
+
+- (void)fetchDataSuccess:(void (^)(HUBaskViewModel *))success failure:(void (^)(NSString *))failure {
+    
+    HUUser *user = (HUUser *)self.model;
     
     BOOL isnetwork = self.networkingReachable;
     if (!isnetwork) {
-        self.model = [HULocalizationApi querry:self.model];
-        if (self.model) {
+        user = [HULocalizationApi querry:user];
+        if (user) {
+            self.name = user.name;
             success(self);
         } else {
             failure(@"没有信息");
@@ -40,7 +63,7 @@
         return;
     }
     
-    HUUser *user = (HUUser *)self.model;
+    
     NSString *url = [NSString stringWithFormat:@"HomeMeNext1Servlet?userid=%zd",user.userId.intValue];
     [HUNetworkingApi GET:url success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"response: %@",responseObject);
@@ -55,14 +78,19 @@
         //_user = newUser;
         self.name = newUser.name;
         
-        success(self);
+        if (success) {
+            success(self);
+        }
         
         //[_user add];
         [HULocalizationApi saveObjec:newUser];
         // [[DBMaster sharedDBMaster] addUser:_user];
         
     } failure:^(NSURLSessionDataTask *task, NSString *error) {
-        failure(error);
+        if (failure) {
+            failure(error);
+        }
+        
     }];
     
 

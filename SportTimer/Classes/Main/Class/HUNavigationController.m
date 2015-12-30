@@ -29,9 +29,9 @@
     NSDictionary *disAttribute = @{NSForegroundColorAttributeName:HUColor(209, 209, 209,1), NSFontAttributeName:[UIFont systemFontOfSize:14]};
     [item setTitleTextAttributes:disAttribute forState:UIControlStateDisabled];
     
-    
    // [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar_bg"] forBarMetrics:UIBarMetricsDefault];
     //[[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    [UINavigationBar appearance].translucent = NO;
 }
 
 

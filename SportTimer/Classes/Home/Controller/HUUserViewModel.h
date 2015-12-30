@@ -6,14 +6,14 @@
 //  Copyright © 2015年 jinhuadiqigan. All rights reserved.
 //
 
-#import "HUViewModel.h"
+#import "HURequestViewModel.h"
 #import "HUUser.h"
 
-@interface HUUserViewModel : HUViewModel
+@interface HUUserViewModel : HURequestViewModel
 
 @property (nonatomic, copy) NSString *name;
 
-//- (instancetype)initWith:(HUUser *)user;
+
 
 - (void)cancel;
 
