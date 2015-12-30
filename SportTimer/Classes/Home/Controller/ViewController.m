@@ -35,7 +35,7 @@
     MyView *view = [[MyView alloc] initWithFrame:CGRectMake(0, 100, 200, 25)];
     [self.view addSubview:view];
     
-    MJRefreshNormalHeader headerWithRefreshingBlock:<#^(void)refreshingBlock#>
+    //MJRefreshNormalHeader headerWithRefreshingBlock:<#^(void)refreshingBlock#>
     
 //    HUParallaxView *parallaxView = [[HUParallaxView alloc] initWithFrame:self.view.bounds];
 //    parallaxView.didScrollSignal = [RACSubject subject];

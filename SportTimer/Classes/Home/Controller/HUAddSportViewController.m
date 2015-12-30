@@ -67,12 +67,13 @@
 
 - (void)reloadData {
     self.title = _userViewModel.name;
+    NSLog(@"1223232323232");
 }
 
 - (void)buttonClicked {
      // NSLog(@"name: %@", _name);
-    NSString *title = [NSString stringWithFormat:@"%@+%@", self.title, _userViewModel.name];
-    self.title = title;
+    //NSString *title = [NSString stringWithFormat:@"%@+%@", self.title, _userViewModel.name];
+    //self.title = title;
     _userViewModel.loadType = HUViewModelLoadTypeLoadNew;
 }
 /*

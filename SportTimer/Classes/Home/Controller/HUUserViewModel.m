@@ -44,10 +44,13 @@
             [self.delegate viewModel:self didFailedWithErrorMsg:msg];
         }
     }];
+    
 }
 
 
 - (void)fetchDataSuccess:(void (^)(HUBaskViewModel *))success failure:(void (^)(NSString *))failure {
+    
+    [super fetchDataSuccess:success failure:failure];
     
     HUUser *user = (HUUser *)self.model;
     
@@ -66,7 +69,7 @@
     
     NSString *url = [NSString stringWithFormat:@"HomeMeNext1Servlet?userid=%zd",user.userId.intValue];
     [HUNetworkingApi GET:url success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"response: %@",responseObject);
+       // NSLog(@"response: %@",responseObject);
         HUUser *newUser = [[HUUser alloc] init];
         
         NSDictionary *user = responseObject[@"user"];
