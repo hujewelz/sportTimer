@@ -32,7 +32,7 @@
     if ([keyPath isEqualToString:@"loadType"]) {
         
         if (self.successBlock) {
-            [self fetchDataSuccess:self.successBlock failure:nil];
+            [self fetchDataSuccess:self.successBlock failure:self.failedBlock];
         }
         else {
             [self fetchData];
