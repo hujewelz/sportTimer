@@ -27,11 +27,11 @@ typedef NS_ENUM(NSInteger, HUViewModelLoadType) {
 
 @interface HUBaskViewModel : NSObject
 
-@property (nonatomic, strong) id model;
+@property (nonatomic,readonly, strong) id model;
 
-@property (nonatomic, copy) void(^successBlock)(id viewModel);
+@property (nonatomic,readonly, copy) void(^successBlock)(id viewModel);
 
-@property (nonatomic, copy) void(^failedBlock)(id msg);
+@property (nonatomic,readonly, copy) void(^failedBlock)(id msg);
 
 @property (nonatomic, weak) id <HUBasicViewModelDelegate> delegate;
 
@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger, HUViewModelLoadType) {
  * 通过此方法获取数据，在Block中处理结果
  */
 
-- (void)fetchDataSuccess:(void(^)(HUBaskViewModel *viewModel))success
+- (void)fetchDataSuccess:(void(^)(id viewModel))success
                  failure:(void(^)(NSString *msg))failure;
 
 /**

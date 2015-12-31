@@ -8,6 +8,16 @@
 
 #import "HUBaskViewModel.h"
 
+@interface HUBaskViewModel ()
+
+@property (nonatomic, strong) id model;
+
+@property (nonatomic, copy) void(^successBlock)(id viewModel);
+
+@property (nonatomic, copy) void(^failedBlock)(id msg);
+
+@end
+
 @implementation HUBaskViewModel
 
 - (instancetype)initWithModel:(id)model {
@@ -23,7 +33,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%s,----- %@", sel_getName(_cmd), self);
+
     [self removeObserver:self forKeyPath:@"loadType"];
 }
 
@@ -40,7 +50,7 @@
     }
 }
 
-- (void)fetchDataSuccess:(void(^)(HUBaskViewModel *viewModel))success
+- (void)fetchDataSuccess:(void(^)(id viewModel))success
                  failure:(void(^)(NSString *msg))failure {
     if (!self.successBlock) {
         self.successBlock = [success copy];
@@ -48,6 +58,7 @@
     if (!self.failedBlock) {
         self.failedBlock = [failure copy];
     }
+    
 }
 
 - (void)fetchData {};

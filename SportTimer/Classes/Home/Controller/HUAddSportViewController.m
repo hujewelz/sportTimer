@@ -9,6 +9,7 @@
 #import "HUAddSportViewController.h"
 #import "UINavigationBar+BackgroundColor.h"
 #import "HUUserViewModel.h"
+#import "AppDelegate.h"
 
 @interface HUAddSportViewController ()<HUBasicViewModelDelegate>
 @property (nonatomic,strong) HUUserViewModel *userViewModel;
@@ -19,7 +20,6 @@
 
 - (void)dealloc {
     [_userViewModel cancel];
-    NSLog(@"%s, %@", sel_getName(_cmd), self);
 }
 
 - (void)viewDidLoad {
@@ -41,7 +41,7 @@
 //    [_userViewModel fetchData];
     
     __weak typeof(self) weakself = self;
-    [_userViewModel fetchDataSuccess:^(HUBaskViewModel *viewModel) {
+    [_userViewModel fetchDataSuccess:^(HURequestViewModel *viewModel) {
         [weakself reloadData];
     } failure:^(NSString *msg) {
         NSLog(@"error: %@", msg);
@@ -75,6 +75,28 @@
     //NSString *title = [NSString stringWithFormat:@"%@+%@", self.title, _userViewModel.name];
     //self.title = title;
     _userViewModel.loadType = HUViewModelLoadTypeLoadNew;
+    
+    UIView *mask = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    mask.backgroundColor = [UIColor blackColor];
+    mask.alpha = 0.6;
+    
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    
+    [window addSubview:mask];
+    
+    [UIView animateWithDuration:1 animations:^{
+    
+        self.navigationController.view.transform = CGAffineTransformMakeScale(0.94, 0.94);
+        
+    } completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:1 delay:2 options:UIViewAnimationOptionCurveLinear animations:^{
+            self.navigationController.view.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [mask removeFromSuperview];
+        }];
+    }];
 }
 /*
 #pragma mark - Navigation

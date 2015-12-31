@@ -18,20 +18,6 @@
 
 @implementation HUUserViewModel
 
-//- (instancetype)initWithModel:(id)model {
-//    self = [super initWithModel:model];
-//    if (self == nil) return nil;
-//    
-//    return self;
-//}
-
-- (void)dealloc {
-     NSLog(@"%s, %@", sel_getName(_cmd), self);
-    //[self removeObserver:self forKeyPath:@"loadType"];
-}
-
-
-
 - (void)fetchData {
     
     [self fetchDataSuccess:^(HUBaskViewModel *viewModel) {
@@ -48,7 +34,7 @@
 }
 
 
-- (void)fetchDataSuccess:(void (^)(HUBaskViewModel *))success failure:(void (^)(NSString *))failure {
+- (void)fetchDataSuccess:(void (^)(id))success failure:(void (^)(NSString *))failure {
     
     [super fetchDataSuccess:success failure:failure];
     

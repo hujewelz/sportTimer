@@ -14,9 +14,4 @@
 @property (nonatomic, copy) NSString *name;
 
 
-
-- (void)cancel;
-
-//- (void)fetchDataSuccess:(void(^)(HUUserViewModel *viewModel))success failure:(void(^)(NSString *msg))failure;
-
 @end
