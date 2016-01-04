@@ -23,7 +23,7 @@
     
     HUUser *old = [self querry];
     if (old.userId.integerValue == _userId.integerValue) {
-      return [[DBMaster sharedDBMaster] runSql:@"UPDATE user SET name=?,gender=?,age=? WHERE userid=?", self.name, @(self.gender), @(self.age+70),_userId];
+      return [[DBMaster sharedDBMaster] runSql:@"UPDATE user SET name=?,gender=?,age=? WHERE userid=?", self.name, @(self.gender), @(self.age),_userId];
     }
     else {
     
@@ -50,7 +50,7 @@
         user.age = [result intForColumn:@"age"];
     }
     [result close];
-    NSLog(@"querry: %@", user.description);
+    //NSLog(@"querry: %@", user.description);
     return user;
 }
 

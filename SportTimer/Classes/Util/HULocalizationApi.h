@@ -13,6 +13,7 @@
 
 + (BOOL)saveObjec:(id<HULocalizationProtocol>)obj;
 
-+ (id)querry:(id<HULocalizationProtocol>)obj;
++ (id)querryObjec:(id<HULocalizationProtocol>)obj;
++ (id)querryAll:(id<HULocalizationProtocol>)obj;
 
 @end

@@ -8,15 +8,25 @@
 
 #import "HUAddSportViewController.h"
 #import "UINavigationBar+BackgroundColor.h"
+#import "HUEditSportViewController.h"
 #import "HUUserViewModel.h"
 #import "AppDelegate.h"
 
-@interface HUAddSportViewController ()<HUBasicViewModelDelegate>
-@property (nonatomic,strong) HUUserViewModel *userViewModel;
+
+@interface HUAddSportViewController ()<UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic,strong) UITableView *tableView;
 
 @end
 
 @implementation HUAddSportViewController
+
+- (instancetype)initWithViewModel:(id)viewModel {
+    self = [super init];
+    if (self) {
+        _userViewModel = viewModel;
+    }
+    return self;
+}
 
 - (void)dealloc {
     [_userViewModel cancel];
@@ -25,78 +35,81 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, 320, 200)];
-    button.backgroundColor = [UIColor orangeColor];
-    [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-    // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewSport)];
     
-    HUUser *user = [[HUUser alloc] init];
-    user.userId = @301;
-    _userViewModel= [[HUUserViewModel alloc] initWithModel:user];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ceeeeelll"];
     
-    //_userViewModel.networkingReachable = YES;
-//    _userViewModel.delegate = self;
-//    [_userViewModel fetchData];
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
+    [self.navigationController.navigationBar hu_setBackgroundColor:kDefaultColor];
     
     __weak typeof(self) weakself = self;
-    [_userViewModel fetchDataSuccess:^(HURequestViewModel *viewModel) {
-        [weakself reloadData];
+    [_userViewModel fetchDataSuccess:^(HUBasicViewModel *viewModel) {
+        [weakself.tableView reloadData];
+    
     } failure:^(NSString *msg) {
-        NSLog(@"error: %@", msg);
+        //NSLog(@"error: %@", msg);
     }];
 
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController.navigationBar hu_setBackgroundColor:kDefaultColor];
-    //[self.navigationController setNavigationBarHidden:NO animated:animated];
-
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewModelDidFetchDataSucceed:(HUBaskViewModel *)viewModel {
-    [self reloadData];
+#pragma mark - tableView datasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.userViewModel.sections;
 }
 
-- (void)reloadData {
-    self.title = _userViewModel.name;
-    NSLog(@"1223232323232");
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.userViewModel numberOfRowsInSection:section];
 }
 
-- (void)buttonClicked {
-     // NSLog(@"name: %@", _name);
-    //NSString *title = [NSString stringWithFormat:@"%@+%@", self.title, _userViewModel.name];
-    //self.title = title;
-    _userViewModel.loadType = HUViewModelLoadTypeLoadNew;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *ID = @"ceeeeelll";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
+    cell.textLabel.text = [self.userViewModel titleForCellAtSection:indexPath.section index:indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    UIView *mask = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    mask.backgroundColor = [UIColor blackColor];
-    mask.alpha = 0.6;
+    if (indexPath.row == 0) {
+        HUEditViewModel *viewModel = [self.userViewModel editStepViewModelAtSection:indexPath.section];
+        HUEditSportViewController *editVc = [[HUEditSportViewController alloc] initWithViewModel:viewModel];
+        [self.navigationController pushViewController:editVc animated:YES];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1f;
+}
+
+#pragma mark - private func
+
+
+- (void)addNewSport {
+    [self.userViewModel addNewItem];
     
+    NSIndexSet *set = [NSIndexSet indexSetWithIndex:self.userViewModel.sections-1];
+    [self.tableView insertSections:set withRowAnimation:UITableViewRowAnimationBottom];
     
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    
-    [window addSubview:mask];
-    
-    [UIView animateWithDuration:1 animations:^{
-    
-        self.navigationController.view.transform = CGAffineTransformMakeScale(0.94, 0.94);
-        
-    } completion:^(BOOL finished) {
-        
-        [UIView animateWithDuration:1 delay:2 options:UIViewAnimationOptionCurveLinear animations:^{
-            self.navigationController.view.transform = CGAffineTransformIdentity;
-        } completion:^(BOOL finished) {
-            [mask removeFromSuperview];
-        }];
-    }];
+    NSIndexPath *indexP = [NSIndexPath indexPathForRow:0 inSection:self.userViewModel.sections-1];
+    [self.tableView scrollToRowAtIndexPath:indexP atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 /*
 #pragma mark - Navigation

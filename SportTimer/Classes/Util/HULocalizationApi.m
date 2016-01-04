@@ -19,9 +19,17 @@
     return NO;
 }
 
-+ (id)querry:(id<HULocalizationProtocol>)obj {
++ (id)querryObjec:(id<HULocalizationProtocol>)obj {
     if ([obj respondsToSelector:@selector(querry)]) {
         return [obj querry];
+    }
+    
+    return nil;
+}
+
++ (id)querryAll:(id<HULocalizationProtocol>)obj {
+    if ([obj respondsToSelector:@selector(querryAll)]) {
+        return [obj querryAll];
     }
     
     return nil;

@@ -11,7 +11,7 @@
 #import "UINavigationBar+BackgroundColor.h"
 #import "HUAddSportViewController.h"
 #import "NSObject+HUCalculator.h"
-
+#import "HUUserViewModel.h"
 #import "HUUserViewModel.h"
 #import "HUModel.h"
 #import "HUCommond.h"
@@ -106,7 +106,11 @@
 #pragma mark - private func
 
 - (void)addNewSport {
-    HUAddSportViewController *newSportVC = [[HUAddSportViewController alloc] init];
+    HUUser *user = [[HUUser alloc] init];
+    user.userId = @301;
+    HUUserViewModel *userViewModel= [[HUUserViewModel alloc] initWithModel:user];
+
+    HUAddSportViewController *newSportVC = [[HUAddSportViewController alloc] initWithViewModel:userViewModel];
     [self.navigationController pushViewController:newSportVC animated:YES];
 }
 

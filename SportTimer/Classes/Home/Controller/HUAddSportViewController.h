@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class HUUserViewModel;
 @interface HUAddSportViewController : UIViewController
+
+- (instancetype)initWithViewModel:(id)viewModel;
+
+@property (nonatomic, strong) HUUserViewModel *userViewModel;
+
 
 @end

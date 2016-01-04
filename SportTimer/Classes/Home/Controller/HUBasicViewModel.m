@@ -6,9 +6,9 @@
 //  Copyright © 2015年 jinhuadiqigan. All rights reserved.
 //
 
-#import "HUBaskViewModel.h"
+#import "HUBasicViewModel.h"
 
-@interface HUBaskViewModel ()
+@interface HUBasicViewModel ()
 
 @property (nonatomic, strong) id model;
 
@@ -18,18 +18,23 @@
 
 @end
 
-@implementation HUBaskViewModel
+@implementation HUBasicViewModel
 
 - (instancetype)initWithModel:(id)model {
     self = [super init];
     if (self == nil) return nil;
     
     _model = model;
+    _networkingReachable = YES;
     
     [self addObserver:self forKeyPath:@"loadType" options:NSKeyValueObservingOptionNew context:nil];
     
     return self;
 
+}
+
+- (instancetype)init {
+    return [self initWithModel:nil];
 }
 
 - (void)dealloc {

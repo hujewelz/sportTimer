@@ -14,6 +14,7 @@
 
 - (BOOL)save;
 - (id)querry;
+- (id)querryAll;
 
 @end
 

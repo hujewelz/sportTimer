@@ -6,12 +6,21 @@
 //  Copyright © 2015年 jinhuadiqigan. All rights reserved.
 //
 
-#import "HURequestViewModel.h"
+#import "HUBasicViewModel.h"
 #import "HUUser.h"
 
-@interface HUUserViewModel : HURequestViewModel
+@class HUEditViewModel;
+@interface HUUserViewModel : HUBasicViewModel
 
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, readonly) NSInteger sections;
 
+
+- (NSInteger)numberOfRowsInSection:(NSInteger)section;
+- (NSString *)titleForCellAtSection:(NSInteger)section index:(NSInteger)index;
+
+-(HUEditViewModel *)editStepViewModelAtSection:(NSInteger)section;
+
+- (void)addNewItem;
 
 @end

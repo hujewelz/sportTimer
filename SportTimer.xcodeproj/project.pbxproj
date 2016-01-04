@@ -10,14 +10,17 @@
 		0405938E1C2E1CD100978221 /* HUNetworkingApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405938D1C2E1CD100978221 /* HUNetworkingApi.m */; };
 		040593911C2E2F2600978221 /* HUUserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 040593901C2E2F2600978221 /* HUUserViewModel.m */; };
 		040593941C2E301F00978221 /* DBMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 040593931C2E301F00978221 /* DBMaster.m */; };
-		040593971C2E304A00978221 /* HUUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 040593961C2E304A00978221 /* HUUser.m */; };
 		0405939B1C2E845D00978221 /* HULocalizationApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405939A1C2E845D00978221 /* HULocalizationApi.m */; };
-		0405939E1C2E8E2500978221 /* HUBaskViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405939D1C2E8E2500978221 /* HUBaskViewModel.m */; };
-		0406E9F81C33723C00F0CE40 /* HURequestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406E9F71C33723C00F0CE40 /* HURequestViewModel.m */; };
+		0405939E1C2E8E2500978221 /* HUBasicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405939D1C2E8E2500978221 /* HUBasicViewModel.m */; };
 		040AE2981C3215D8004B7F46 /* HUTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AE2971C3215D8004B7F46 /* HUTabBarController.m */; };
 		040AE29B1C321840004B7F46 /* HUTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 040AE29A1C321840004B7F46 /* HUTabBar.m */; };
-		045310C21C2CEEAF00DE0DC9 /* HUModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045310C11C2CEEAF00DE0DC9 /* HUModel.m */; };
 		045310C51C2D052500DE0DC9 /* HUCommond.m in Sources */ = {isa = PBXBuildFile; fileRef = 045310C41C2D052500DE0DC9 /* HUCommond.m */; };
+		04EEC2F61C39FAC900D13CD4 /* HUCustomDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEC2F51C39FAC900D13CD4 /* HUCustomDataSource.m */; };
+		04EEC2FA1C3A0AC100D13CD4 /* HUEditSportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEC2F81C3A0AC100D13CD4 /* HUEditSportViewController.m */; };
+		04EEC2FB1C3A0AC100D13CD4 /* HUEditSportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EEC2F91C3A0AC100D13CD4 /* HUEditSportViewController.xib */; };
+		04EEC3001C3A0CAD00D13CD4 /* HUEditViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEC2FF1C3A0CAD00D13CD4 /* HUEditViewModel.m */; };
+		04EEC3061C3A32D700D13CD4 /* HUModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEC3031C3A32D700D13CD4 /* HUModel.m */; };
+		04EEC3071C3A32D700D13CD4 /* HUUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EEC3051C3A32D700D13CD4 /* HUUser.m */; };
 		04F03AB41C2B7A16007C5A7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F03AB31C2B7A16007C5A7A /* main.m */; };
 		04F03AB71C2B7A16007C5A7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F03AB61C2B7A16007C5A7A /* AppDelegate.m */; };
 		04F03ABD1C2B7A16007C5A7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F03ABB1C2B7A16007C5A7A /* Main.storyboard */; };
@@ -48,23 +51,28 @@
 		040593901C2E2F2600978221 /* HUUserViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUUserViewModel.m; sourceTree = "<group>"; };
 		040593921C2E301F00978221 /* DBMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMaster.h; sourceTree = "<group>"; };
 		040593931C2E301F00978221 /* DBMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMaster.m; sourceTree = "<group>"; };
-		040593951C2E304A00978221 /* HUUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUUser.h; sourceTree = "<group>"; };
-		040593961C2E304A00978221 /* HUUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUUser.m; sourceTree = "<group>"; };
 		040593981C2E83E100978221 /* HULocalizationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HULocalizationProtocol.h; sourceTree = "<group>"; };
 		040593991C2E845D00978221 /* HULocalizationApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HULocalizationApi.h; sourceTree = "<group>"; };
 		0405939A1C2E845D00978221 /* HULocalizationApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HULocalizationApi.m; sourceTree = "<group>"; };
-		0405939C1C2E8E2500978221 /* HUBaskViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUBaskViewModel.h; sourceTree = "<group>"; };
-		0405939D1C2E8E2500978221 /* HUBaskViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUBaskViewModel.m; sourceTree = "<group>"; };
-		0406E9F61C33723C00F0CE40 /* HURequestViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURequestViewModel.h; sourceTree = "<group>"; };
-		0406E9F71C33723C00F0CE40 /* HURequestViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURequestViewModel.m; sourceTree = "<group>"; };
+		0405939C1C2E8E2500978221 /* HUBasicViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUBasicViewModel.h; sourceTree = "<group>"; };
+		0405939D1C2E8E2500978221 /* HUBasicViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUBasicViewModel.m; sourceTree = "<group>"; };
 		040AE2961C3215D8004B7F46 /* HUTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUTabBarController.h; sourceTree = "<group>"; };
 		040AE2971C3215D8004B7F46 /* HUTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUTabBarController.m; sourceTree = "<group>"; };
 		040AE2991C321840004B7F46 /* HUTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUTabBar.h; sourceTree = "<group>"; };
 		040AE29A1C321840004B7F46 /* HUTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUTabBar.m; sourceTree = "<group>"; };
-		045310C01C2CEEAF00DE0DC9 /* HUModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUModel.h; sourceTree = "<group>"; };
-		045310C11C2CEEAF00DE0DC9 /* HUModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUModel.m; sourceTree = "<group>"; };
 		045310C31C2D052500DE0DC9 /* HUCommond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUCommond.h; sourceTree = "<group>"; };
 		045310C41C2D052500DE0DC9 /* HUCommond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUCommond.m; sourceTree = "<group>"; };
+		04EEC2F41C39FAC900D13CD4 /* HUCustomDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUCustomDataSource.h; sourceTree = "<group>"; };
+		04EEC2F51C39FAC900D13CD4 /* HUCustomDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUCustomDataSource.m; sourceTree = "<group>"; };
+		04EEC2F71C3A0AC100D13CD4 /* HUEditSportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUEditSportViewController.h; sourceTree = "<group>"; };
+		04EEC2F81C3A0AC100D13CD4 /* HUEditSportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUEditSportViewController.m; sourceTree = "<group>"; };
+		04EEC2F91C3A0AC100D13CD4 /* HUEditSportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUEditSportViewController.xib; sourceTree = "<group>"; };
+		04EEC2FE1C3A0CAD00D13CD4 /* HUEditViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUEditViewModel.h; sourceTree = "<group>"; };
+		04EEC2FF1C3A0CAD00D13CD4 /* HUEditViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUEditViewModel.m; sourceTree = "<group>"; };
+		04EEC3021C3A32D700D13CD4 /* HUModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUModel.h; sourceTree = "<group>"; };
+		04EEC3031C3A32D700D13CD4 /* HUModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUModel.m; sourceTree = "<group>"; };
+		04EEC3041C3A32D700D13CD4 /* HUUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUUser.h; sourceTree = "<group>"; };
+		04EEC3051C3A32D700D13CD4 /* HUUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUUser.m; sourceTree = "<group>"; };
 		04F03AAF1C2B7A16007C5A7A /* SportTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F03AB31C2B7A16007C5A7A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04F03AB51C2B7A16007C5A7A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,8 +138,44 @@
 				040593981C2E83E100978221 /* HULocalizationProtocol.h */,
 				040593991C2E845D00978221 /* HULocalizationApi.h */,
 				0405939A1C2E845D00978221 /* HULocalizationApi.m */,
+				04EEC2F41C39FAC900D13CD4 /* HUCustomDataSource.h */,
+				04EEC2F51C39FAC900D13CD4 /* HUCustomDataSource.m */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		04EEC2FC1C3A0AFD00D13CD4 /* Add sport */ = {
+			isa = PBXGroup;
+			children = (
+				04F9CE131C2BDFCB00FF2E2E /* HUAddSportViewController.h */,
+				04F9CE141C2BDFCB00FF2E2E /* HUAddSportViewController.m */,
+				0405938F1C2E2F2600978221 /* HUUserViewModel.h */,
+				040593901C2E2F2600978221 /* HUUserViewModel.m */,
+			);
+			name = "Add sport";
+			sourceTree = "<group>";
+		};
+		04EEC2FD1C3A0B0E00D13CD4 /* Edit sport */ = {
+			isa = PBXGroup;
+			children = (
+				04EEC2F71C3A0AC100D13CD4 /* HUEditSportViewController.h */,
+				04EEC2F81C3A0AC100D13CD4 /* HUEditSportViewController.m */,
+				04EEC2F91C3A0AC100D13CD4 /* HUEditSportViewController.xib */,
+				04EEC2FE1C3A0CAD00D13CD4 /* HUEditViewModel.h */,
+				04EEC2FF1C3A0CAD00D13CD4 /* HUEditViewModel.m */,
+			);
+			name = "Edit sport";
+			sourceTree = "<group>";
+		};
+		04EEC3011C3A329400D13CD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04EEC3021C3A32D700D13CD4 /* HUModel.h */,
+				04EEC3031C3A32D700D13CD4 /* HUModel.m */,
+				04EEC3041C3A32D700D13CD4 /* HUUser.h */,
+				04EEC3051C3A32D700D13CD4 /* HUUser.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		04F03AA61C2B7A15007C5A7A = {
@@ -227,6 +271,7 @@
 		04F9CDFD1C2BC72A00FF2E2E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				04EEC3011C3A329400D13CD4 /* Model */,
 				04F9CDFE1C2BC76100FF2E2E /* Controller */,
 				04F9CE011C2BC76100FF2E2E /* View */,
 			);
@@ -238,18 +283,10 @@
 			children = (
 				04F9CDFF1C2BC76100FF2E2E /* ViewController.h */,
 				04F9CE001C2BC76100FF2E2E /* ViewController.m */,
-				04F9CE131C2BDFCB00FF2E2E /* HUAddSportViewController.h */,
-				04F9CE141C2BDFCB00FF2E2E /* HUAddSportViewController.m */,
-				0405938F1C2E2F2600978221 /* HUUserViewModel.h */,
-				040593901C2E2F2600978221 /* HUUserViewModel.m */,
-				0405939C1C2E8E2500978221 /* HUBaskViewModel.h */,
-				0405939D1C2E8E2500978221 /* HUBaskViewModel.m */,
-				0406E9F61C33723C00F0CE40 /* HURequestViewModel.h */,
-				0406E9F71C33723C00F0CE40 /* HURequestViewModel.m */,
-				040593951C2E304A00978221 /* HUUser.h */,
-				040593961C2E304A00978221 /* HUUser.m */,
-				045310C01C2CEEAF00DE0DC9 /* HUModel.h */,
-				045310C11C2CEEAF00DE0DC9 /* HUModel.m */,
+				04EEC2FC1C3A0AFD00D13CD4 /* Add sport */,
+				04EEC2FD1C3A0B0E00D13CD4 /* Edit sport */,
+				0405939C1C2E8E2500978221 /* HUBasicViewModel.h */,
+				0405939D1C2E8E2500978221 /* HUBasicViewModel.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -375,6 +412,7 @@
 				04F03ABF1C2B7A16007C5A7A /* Assets.xcassets in Resources */,
 				04F9CDEF1C2BBF8E00FF2E2E /* a.jpg in Resources */,
 				04F03ABD1C2B7A16007C5A7A /* Main.storyboard in Resources */,
+				04EEC2FB1C3A0AC100D13CD4 /* HUEditSportViewController.xib in Resources */,
 				04F03AD11C2BB5FE007C5A7A /* HULoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,30 +474,32 @@
 			files = (
 				04F9CE111C2BDD4E00FF2E2E /* UIBarButtonItem+Extension.m in Sources */,
 				04F9CDFC1C2BC20B00FF2E2E /* UIView+Extension.m in Sources */,
-				045310C21C2CEEAF00DE0DC9 /* HUModel.m in Sources */,
-				0406E9F81C33723C00F0CE40 /* HURequestViewModel.m in Sources */,
 				04F9CDFA1C2BC20B00FF2E2E /* UIImage+Extension.m in Sources */,
 				040AE29B1C321840004B7F46 /* HUTabBar.m in Sources */,
 				04F9CDF91C2BC20B00FF2E2E /* NSString+Extension.m in Sources */,
 				0405938E1C2E1CD100978221 /* HUNetworkingApi.m in Sources */,
 				04F9CE151C2BDFCB00FF2E2E /* HUAddSportViewController.m in Sources */,
-				040593971C2E304A00978221 /* HUUser.m in Sources */,
+				04EEC3071C3A32D700D13CD4 /* HUUser.m in Sources */,
 				04F9CE191C2BEA6100FF2E2E /* HUCalculatorMaker.m in Sources */,
+				04EEC2F61C39FAC900D13CD4 /* HUCustomDataSource.m in Sources */,
+				04EEC2FA1C3A0AC100D13CD4 /* HUEditSportViewController.m in Sources */,
 				04F9CE041C2BC76100FF2E2E /* ViewController.m in Sources */,
 				04F9CE081C2BC79900FF2E2E /* HUParallaxView.m in Sources */,
 				04F9CDFB1C2BC20B00FF2E2E /* UINavigationBar+BackgroundColor.m in Sources */,
 				040593941C2E301F00978221 /* DBMaster.m in Sources */,
 				04F03AD01C2BB5FE007C5A7A /* HULoginViewController.m in Sources */,
+				04EEC3061C3A32D700D13CD4 /* HUModel.m in Sources */,
 				04F9CE1C1C2BEB2A00FF2E2E /* NSObject+HUCalculator.m in Sources */,
 				040593911C2E2F2600978221 /* HUUserViewModel.m in Sources */,
 				0405939B1C2E845D00978221 /* HULocalizationApi.m in Sources */,
 				04F9CE051C2BC76100FF2E2E /* MyView.m in Sources */,
 				04F03AB71C2B7A16007C5A7A /* AppDelegate.m in Sources */,
 				045310C51C2D052500DE0DC9 /* HUCommond.m in Sources */,
+				04EEC3001C3A0CAD00D13CD4 /* HUEditViewModel.m in Sources */,
 				04F9CE0E1C2BDD0600FF2E2E /* HUNavigationController.m in Sources */,
 				040AE2981C3215D8004B7F46 /* HUTabBarController.m in Sources */,
 				04F03AB41C2B7A16007C5A7A /* main.m in Sources */,
-				0405939E1C2E8E2500978221 /* HUBaskViewModel.m in Sources */,
+				0405939E1C2E8E2500978221 /* HUBasicViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

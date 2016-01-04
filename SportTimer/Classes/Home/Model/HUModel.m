@@ -9,5 +9,6 @@
 #import "HUModel.h"
 
 @implementation HUModel
+@dynamic name;
 
 @end

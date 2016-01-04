@@ -14,18 +14,24 @@ typedef NS_ENUM(NSInteger, HUViewModelLoadType) {
     HUViewModelLoadTypeLoadMore  //分页
 };
 
+typedef NS_ENUM(NSInteger, HUResponseStatus) {
+    HUResponseStatusFailed,
+    HUResponseStatusSucceed
+};
 
-@class HUBaskViewModel;
+
+
+@class HUBasicViewModel;
 @protocol HUBasicViewModelDelegate <NSObject>
 
 @optional
-- (void)viewModelDidFetchDataSucceed:(HUBaskViewModel *)viewModel;
+- (void)viewModelDidFetchDataSucceed:(HUBasicViewModel *)viewModel;
 
-- (void)viewModel:(HUBaskViewModel *)viewModel didFailedWithErrorMsg:(NSString *)error;
+- (void)viewModel:(HUBasicViewModel *)viewModel didFailedWithErrorMsg:(NSString *)error;
 
 @end
 
-@interface HUBaskViewModel : NSObject
+@interface HUBasicViewModel : NSObject
 
 @property (nonatomic,readonly, strong) id model;
 
@@ -36,6 +42,22 @@ typedef NS_ENUM(NSInteger, HUViewModelLoadType) {
 @property (nonatomic, weak) id <HUBasicViewModelDelegate> delegate;
 
 @property (nonatomic) HUViewModelLoadType loadType;
+
+/**
+ * 设置网络状态状态，默认为 YES
+ */
+@property (nonatomic) BOOL networkingReachable;
+
+/**
+ * @bref 服务器返回的状态
+ */
+@property (nonatomic, readonly) HUResponseStatus status;
+
+/**
+ * 服务器返回的信息
+ */
+@property (nonatomic,readonly, copy) NSString *responseMsg;
+
 
 /**
  * 通过一个model创建对象
@@ -62,4 +84,9 @@ typedef NS_ENUM(NSInteger, HUViewModelLoadType) {
 - (void)cancel;
 
 @end
+
+//@interface HUBaskViewModel (NetworkRequest)
+//
+//
+//@end
 
